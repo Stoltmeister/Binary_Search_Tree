@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BinarySearchTree
 {
-    class Tree<T>
+    class Tree
     {
         private Node root;
 
@@ -14,7 +14,13 @@ namespace BinarySearchTree
         {
             root = new Node(value);
         }
-        public void Add(Node currentNode, int value)
+
+        public void Add(int value)
+        {
+            Add(root, value);
+        }
+
+        private void Add(Node currentNode, int value)
         {
             if (currentNode == null)
             {
@@ -28,28 +34,29 @@ namespace BinarySearchTree
             else if (value >= currentNode.Value)
             {
                 Add(root.right, value);
-            }            
+                return;
+            }
         }
 
-        public void Search(Node node, int value)
+        public void Search(int value, Node node = null)
         {
             if (node == null)
             {
                 Console.WriteLine("Not Found!");
                 return;
             }
-            else if (node.left.Value == value || node.right.Value == value || node.Value == value) 
+            else if (node.left.Value == value || node.right.Value == value || node.Value == value)
             {
                 Console.WriteLine("Found!");
                 return;
             }
             else if (value < node.left.Value)
             {
-                Search(node.left, value);
+                Search(value, node.left);
             }
             else if (node.right.Value < value)
             {
-                Search(node.right, value);
+                Search(value, node.right);
             }
             else
             {
@@ -59,8 +66,8 @@ namespace BinarySearchTree
 
         }
 
-           
 
-}
+
     }
+}
 }

@@ -10,16 +10,14 @@ namespace BinarySearchTree
     {
         static void Main(string[] args)
         {
-            Tree binarySearchTree = new Tree();
-            Node root = null;
-
-            binarySearchTree.Add(root, 50);
+            Tree binarySearchTree = new Tree(0);
+            Node newNode;
             Random r = new Random();
             for (int i = 0; i < 20; i++)
-            {                
-                root = binarySearchTree.Add(root, r.Next(1, 100));
+            {
+                binarySearchTree.Add(r.Next(1, 100));
             }
-            binarySearchTree.Search(root);
+            binarySearchTree.Search(11);
             //binarySearchTree
             
         }

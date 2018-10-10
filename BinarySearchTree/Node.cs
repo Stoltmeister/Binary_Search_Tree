@@ -10,7 +10,6 @@ namespace BinarySearchTree
 
         public Node left;
         public Node right;
-        public Node parent;
         int value;
 
         public Node (int value)
@@ -18,7 +17,6 @@ namespace BinarySearchTree
             this.value = value;
             left = null;
             right = null;
-            parent = null;
         }
         
         public int Value
